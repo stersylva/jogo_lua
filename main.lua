@@ -36,4 +36,5 @@ function love.draw()
   love.graphics.circle("line", Player.x, Player.y, Player.r)
   love.graphics.circle("fill", Auto.x, Auto.y, Auto.r)
 
+
 end
