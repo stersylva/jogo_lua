@@ -4,5 +4,5 @@ function love.conf(t)
   t.window.width = 1000 --- a largura da telas
   t.window.height = 600 ---largura da telas
   t.window.borderless = false -- é a borda da janela pra deixar sem a borada coloca true
-
+  t.window.fullscreen = false --Ativa tela cheia
 end
