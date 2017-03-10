@@ -1,0 +1,4 @@
+links dos arquivos de configurações das funções
+https://love2d.org/wiki/Config_Files
+
+Para imagens dar preferencia a potencia de dois ou seja 2, 4 ,6
