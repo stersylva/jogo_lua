@@ -2,6 +2,10 @@ width = love.graphics.getWidth()
 height = love.graphics.getHeight()
 
 function love.load()
+--Define cor de fundo
+  love.graphics.setBackgroundColor(5, 70, 110) -- a é transparencia
+
+--Define o "objeto" player
   Player       = {}
   Player.img   = love.graphics.newImage("img/player.png")
   ------ definir a altura e largura da imagem
@@ -75,7 +79,7 @@ if Player.x < Player.h /2 then
 
 if Player.y > height - Player.h /2 then
   Player.y = height - Player.h / 2
-    end 
+    end
 if Player.x > width - Player.h /2 then
   Player.x = width - Player.w / 2
     end
