@@ -19,9 +19,14 @@ function Bullet:create() -- sempre que ele clicar ele vai carrega essa função
 end
 
 function Bullet:update(dt)
-
+  for i, b in ipairs(Player.bullets) do
+    b.x = b.x + b.speed * dt
+  end
 end
 
 function Bullet:draw()
-
+    for i, b in ipairs(Player.bullets) do --para esse par de indice i e nome b
+      -- indice é o número do elemento ex: a partir de 5 balas eu vou ter a bala 1 a bala 2 a bala 3
+      love.graphics.draw(b.img, b.x, b.y, b.r, b.sx, b.sy, b.ox, b.oy)
+    end
 end

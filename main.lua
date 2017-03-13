@@ -1,4 +1,4 @@
-require ("player") -- require serve pra chamar o outro arquivo se tivesse em outra pasta seria require("nome da pasta/ nome do arquivo")
+require ("player") -- require serve pra chamar o outro arquivo se tivesse em outra pasta seria require("nome da pasta/nome do arquivo")
 require ("bullet")
 
 width = love.graphics.getWidth()
@@ -16,10 +16,17 @@ function love.update(dt)
 
   Player:update(dt) -- Atualiza Player
 
+  Bullet:update(dt)
 end
 
 function love.draw()
 
+  Bullet:draw() -- desenhar as bullets
+  ---- o desenho do bullets pra ficar antes do player
   Player:draw() -- desenha Player
 
+
+-- Varáveis de controle
+  love.graphics.print("Bullets: "..#Player.bullets) --# acessa o número de elementos que está dentro da bullets
+                      -- pra colocar uma string e concatenar com o valor tem que colocar .. dois pontos
 end

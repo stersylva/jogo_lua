@@ -17,3 +17,4 @@ ex: a palavra self esta substituindo o Player dentro da função
 			Player.x = Player.x - Player.xvel * dt
 
 
+Pra colocar uma string e concatenar o valor tem que colocar .. dois pontos

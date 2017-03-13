@@ -1,6 +1,6 @@
 Player = {}
 
-function Player:loard() -- :na função define um metodo . é euma função
+function Player:loard() -- dois pontos : na função define um metodo u ponto . é euma função
   --Define o "objeto" player
     self.img    = love.graphics.newImage("img/player.png")
     ------ definir a altura e largura da imagem
@@ -27,6 +27,8 @@ function Player:loard() -- :na função define um metodo . é euma função
 
     -- saquinho de balas
     self.bullets = {}
+    self.cd      = 0.5 --ele só pode atirar depois de 0,5 segundo
+    self.canfire = 0
 end
 
 function Player:update(dt)-- dt é a fração de tempo. Essa função vai retornar verdeiro ou falso caso seja apetadas as telas a,w,s,d
@@ -80,6 +82,13 @@ if self.x > width - self.h /2 then
   self.x = width - self.w / 2
     end
 
+-- Atira com o botão esquerdo do mouse 1 com o direito 2
+--- Atira quando estiver no cooldown
+self.canfire = self.canfire - dt -- você só vai conceguir atirar depois de 0,5 e acada 0,5 depois
+if love.mouse.isDown(1) and self.canfire <= 0 then
+  self.canfire = self.cd
+  self:fire()
+    end
 end
 
 function Player:draw()
@@ -90,5 +99,5 @@ love.graphics.draw(self.img, self.x, self.y, self.r, self.sx, self.sy, self.ox, 
 end
 
 function Player:fire() -- vai fazer com que o player atire
-  table.insert(self.bullet, Bullet:create())
+  table.insert(self.bullets, Bullet:create())
 end
