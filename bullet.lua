@@ -14,6 +14,7 @@ function Bullet:create() -- sempre que ele clicar ele vai carrega essa função
   bullet.sy    = 1
   bullet.r     = 0
   bullet.speed = 1000
+  bullet.life  = 3 -- vida das balas
 
   return bullet
 end
@@ -21,6 +22,10 @@ end
 function Bullet:update(dt)
   for i, b in ipairs(Player.bullets) do
     b.x = b.x + b.speed * dt
+    b.life = b.life - dt -- sua vida vai diminuir a cada tempo
+    if b.life<= 0 then -- se a sua vida for menor ouigual a zero
+        table.remove(Player.bullets, i)
+    end
   end
 end
 
