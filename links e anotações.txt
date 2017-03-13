@@ -1,4 +1,19 @@
 links dos arquivos de configurações das funções
 https://love2d.org/wiki/Config_Files
 
-Para imagens dar preferencia a potencia de dois ou seja 2, 4 ,6
+ctrl + d pra selecionar uma plavra em todo codigo.
+
+Para inserir imagens dar preferencia a potencia de dois ou seja 2, 4 ,6
+
+Diferenças entre usar . e : a pois a função 
+quando você coloca : dentro do metodo outra palavra pode substituir o metodo,
+que ele vai aceitar sem dar erro.
+
+ex: a palavra self esta substituindo o Player dentro da função
+	
+	function Player:update(dt)
+		if love.keyboard.isDown("w") and love.keyboard.isDown("a) then
+			self.y = Player.y - Player.yvel * dt
+			Player.x = Player.x - Player.xvel * dt
+
+
