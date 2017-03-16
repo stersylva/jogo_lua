@@ -26,9 +26,14 @@ function Player:loard() -- dois pontos : na função define um metodo u ponto . 
     --Auto.speed = 50
 
     -- saquinho de balas
-    Player.bullets = {}
-    Player.cd      = 0.5 --ele só pode atirar depois de 0,5 segundo
-    Player.canfire = 0
+
+
+    self.bullets = {}
+    self.cd      = 0.5 --ele só pode atirar depois de 0,5 segundo
+    self.canfire = 0
+    self.body    = HC.circle(self.x, self.y, self.w / 2)
+    self.iscoll  = "NO"
+
 end
 
 function Player:update(dt)-- dt é a fração de tempo. Essa função vai retornar verdeiro ou falso caso seja apetadas as telas a,w,s,d
@@ -89,10 +94,15 @@ if love.mouse.isDown(1) and Player.canfire <= 0 then
   Player.canfire = Player.cd
   self:fire()
     end
+-- move corpo para o player
+self.body:moveTo(self.x, self.y)-- move para um ponto especifico
+
 end
 
 function Player:draw()
-love.graphics.draw(Player.img, Player.x, Player.y, Player.r, Player.sx, Player.sy, Player.ox, Player.oy) --kx e ky é pra fazer um corte na imagem
+love.graphics.draw(self.img, self.x, self.y, self.r, self.sx, self.sy, self.ox, self.oy) --kx e ky é pra fazer um corte na imagem
+self.body:draw() -- desenhando o circulo
+
 -----------------------------------aqui é quando era com circulo
 --love.graphics.circle("line", Player.x, Player.y, Player.r)
 --love.graphics.circle("fill", Auto.x, Auto.y, Auto.r)
