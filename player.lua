@@ -89,6 +89,7 @@ if love.mouse.isDown(1) and self.canfire <= 0 then
   self.canfire = self.cd
   self:fire()
     end
+
 end
 
 function Player:draw()

@@ -6,7 +6,7 @@ height = love.graphics.getHeight()
 
 function love.load()
 --Define cor de fundo
-  love.graphics.setBackgroundColor(5, 70, 110) -- a é transparencia
+  love.graphics.setBackgroundColor(255, 0, 255) -- a é transparencia
 
   Player:loard() --- Carrega Player
 
